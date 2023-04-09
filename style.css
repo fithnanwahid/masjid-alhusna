@@ -1,0 +1,279 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    overflow-x: hidden;
+}
+.logo img{
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.logo span{
+    color: rgb(200, 253, 200);
+}
+
+nav{
+    display: flex;
+    background-color: green;
+    /* justify-content: space-between; */
+    height: 50px;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin-left: 200px;
+    /* background-color: black; */
+}
+
+nav ul li{
+    list-style: none;
+}
+nav ul li a{
+    text-decoration: none;
+    color: rgb(127, 236, 127);
+}
+
+nav ul li a:hover{
+    color: rgb(200, 253, 200);
+}
+.tentang{
+    width: 100%;
+    align-items: center;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+}
+.tentang .about{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0;
+    justify-content: space-between;
+}
+
+.about h1{
+    text-align: center;
+}
+
+.about p{
+    text-align: justify;
+}
+.gambar{
+    width: 100%;
+}
+.tentang .gambar img{
+    width: 100%;
+    height: 600px;
+}
+
+.tentang .about p:nth-child(2){
+    line-height: 3;
+    margin-top: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul{
+    line-height: 30px;
+    margin-left: 20px;
+}
+.penutup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    width: 100%;
+    /* border: 1px solid black; */
+    /* height: 200px; */
+
+}
+.penutup .keahlian{
+    width: 50%;
+    /* background-color: aqua; */
+    height: 80%;
+}
+.penutup img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.develop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    /* background-color: blue; */
+}
+
+.develop div{
+    margin-top: 30px;
+}
+
+.keahlian ul{
+    margin-top: 10px;
+}
+.about ul li{
+    line-height: 3;
+}
+
+.judul{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+.keahlian{
+    line-height: 2;
+    /* border: 1px solid black; */
+}
+
+.dp{
+    font-size: 50px;
+}
+
+.hr{
+    height: 30px;
+    width: 100%;
+    margin-top: 50px;
+    background-color: green;
+}
+
+/* hamburger menu */
+.menu-toggle{
+    display:  none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    left: -17px;
+    top: -5px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color:rgb(169, 253, 253) ;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 0;
+}
+
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: white;
+    transform: rotate(45deg) translate(1px, -1px);
+}
+
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    background-color: white;
+    transform: rotate(-45deg) translate(-3px, 0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    transform: scale(0);
+}
+
+@media(max-width: 768px){
+    nav{
+        background-color: blue;
+    }
+
+    nav ul{
+        margin-left: 100px;
+    }
+
+    .tentang .gambar img{
+        height: 20%;
+    }
+
+    .penutup .keahlian{
+        height: 80%;
+        /* background-color: black; */
+    }
+    .hr{
+        background-color: blue;
+    }
+}
+
+@media(max-width: 576px){
+    nav{
+        background-color: green;
+        justify-content: space-between;
+        z-index:5;
+    }
+
+    nav ul{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: green;
+        z-index:-5 ;
+        transform: translateX(100%);
+        transition: all 1s;
+        opacity: 0;
+     }
+
+    .tentang .gambar img{
+        height: 400px;
+    }
+
+    .menu-toggle{
+        display: flex;
+    }
+    nav ul.slide{
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .penutup{
+        flex-direction: column;
+    }
+
+    .penutup .keahlian{
+        margin-top: 40px;
+    }
+    .penutup{
+        height: none;
+    }
+}
+
